@@ -101,14 +101,12 @@
 }
 
 .animate-gradient{
-  background: linear-gradient(90deg, #FF4500, #D946EF, #F472B6, #FF4500);
-  background-size: 400% 400%;
+  background: linear-gradient(90deg, #FF4500, #D946EF, #F472B6);
+  background-size:200%, 200%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: gradient 3s ease infinite;
-  text-shadow: 0 0 20px #D946EF, 0 0 40px #F472B6, 0 0 60px #FF4500;
-  filter: drop-shadow(0 0 10px #D946EF) drop-shadow(0 0 20px #F472B6);
+  animation: gradient 4s ease infinite;
 }
 
 @keyframes gradient {
