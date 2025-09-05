@@ -22,7 +22,7 @@ const FeaturesSection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="glass-card p-8 text-center hover-lift fade-in-up animate stagger-1 group">
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center floating group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Brain className="w-8 h-8 text-white" />
               </div>
             </div>
@@ -36,7 +36,7 @@ const FeaturesSection = () => {
           
           <div className="glass-card p-8 text-center hover-lift fade-in-up animate stagger-2 group">
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center floating-delayed group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <MessageSquare className="w-8 h-8 text-white" />
               </div>
             </div>
@@ -50,7 +50,7 @@ const FeaturesSection = () => {
           
           <div className="glass-card p-8 text-center hover-lift fade-in-up animate stagger-3 group">
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full flex items-center justify-center floating group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Zap className="w-8 h-8 text-white" />
               </div>
             </div>
