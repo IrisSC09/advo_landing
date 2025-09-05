@@ -1,64 +1,70 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
+import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import waitlistBackground from "@/assets/waitlist-background.jpg";
 
 const WaitlistSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    causes: ""
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [causes, setCauses] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email) {
+    if (!name.trim() || !email.trim()) {
       toast({
         title: "Missing Information",
         description: "Please fill in your name and email.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const { error } = await supabase
         .from('waitlist')
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          causes: formData.causes
-        });
+        .insert([
+          {
+            name: name.trim(),
+            email: email.trim(),
+            causes: causes.trim() || null,
+          }
+        ]);
 
       if (error) throw error;
 
       toast({
         title: "Welcome to the movement! 🚀",
-        description: "You've been added to our waitlist. Get ready to turn passion into power!"
+        description: "You're now on the waitlist. We'll keep you updated on our progress!",
       });
-      
-      setFormData({ name: "", email: "", causes: "" });
+
+      // Reset form
+      setName("");
+      setEmail("");
+      setCauses("");
     } catch (error) {
-      console.error('Error submitting to waitlist:', error);
+      console.error('Error adding to waitlist:', error);
       toast({
-        title: "Submission Failed",
-        description: "There was an error joining the waitlist. Please try again.",
-        variant: "destructive"
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleInputChange = (setter: (value: string) => void) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setter(e.target.value);
   };
 
   return (
@@ -66,61 +72,66 @@ const WaitlistSection = () => {
       id="waitlist"
       className="py-20 relative bg-cover bg-center"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${waitlistBackground})`
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${waitlistBackground})`
       }}
     >
-      <div className="container mx-auto px-6 text-center text-white">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">
-          Ready to turn passion into <span className="neon-glow">power?</span>
-        </h2>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light">
-          Join a movement of young activists who are done with performative politics
-          and ready for real change.
-        </p>
-        
-        <div className="max-w-md mx-auto">
-          <div className="bg-black/60 p-8 rounded-2xl neon-border">
-            <h3 className="text-2xl font-bold mb-2 neon-glow">Join the Waitlist</h3>
-            <p className="text-orange-500 mb-6">Be the first to turn your passion into powerful action</p>
-            
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                type="text"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
-                disabled={isSubmitting}
-              />
-              <Input
-                type="email"
-                placeholder="your.email@example.com"
-                value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
-                disabled={isSubmitting}
-              />
-              <Input
-                type="text"
-                placeholder="Causes you care about (optional)"
-                value={formData.causes}
-                onChange={(e) => handleInputChange("causes", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
-                disabled={isSubmitting}
-              />
-              <Button 
-                type="submit"
-                className="w-full neon-button text-white font-semibold py-4 text-lg"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Joining..." : "Start now!"}
-              </Button>
-            </form>
-            
-            <p className="text-orange-500 mt-4 text-sm">
-              For future changemakers. Launching Soon
+      <div className="container mx-auto px-6">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12 fade-in-up animate">
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 neon-glow floating">
+              JOIN THE REVOLUTION
+            </h2>
+            <p className="text-xl text-gray-300 font-light">
+              Be part of the generation that transforms how we engage with politics. 
+              Early access coming soon. ✊
             </p>
           </div>
+          
+          <form onSubmit={handleSubmit} className="glass-card p-8 hover-lift fade-in-up animate stagger-1">
+            <div className="space-y-6">
+              <div className="fade-in-up animate stagger-1">
+                <Input
+                  type="text"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={handleInputChange(setName)}
+                  disabled={isSubmitting}
+                  className="bg-black/50 border-gray-700 text-white placeholder-gray-400 h-12 rounded-xl focus:border-purple-500 focus:ring-purple-500 transition-all"
+                />
+              </div>
+              
+              <div className="fade-in-up animate stagger-2">
+                <Input
+                  type="email"
+                  placeholder="Your email"
+                  value={email}
+                  onChange={handleInputChange(setEmail)}
+                  disabled={isSubmitting}
+                  className="bg-black/50 border-gray-700 text-white placeholder-gray-400 h-12 rounded-xl focus:border-purple-500 focus:ring-purple-500 transition-all"
+                />
+              </div>
+              
+              <div className="fade-in-up animate stagger-3">
+                <Textarea
+                  placeholder="What causes do you care about? (optional)"
+                  value={causes}
+                  onChange={handleInputChange(setCauses)}
+                  disabled={isSubmitting}
+                  className="bg-black/50 border-gray-700 text-white placeholder-gray-400 rounded-xl focus:border-purple-500 focus:ring-purple-500 transition-all min-h-[100px]"
+                />
+              </div>
+              
+              <div className="fade-in-up animate stagger-3">
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="modern-button w-full h-14 text-lg font-semibold hover-lift"
+                >
+                  {isSubmitting ? "Joining the Movement..." : "Join the Waitlist"}
+                </Button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
