@@ -101,21 +101,25 @@
 }
 
 .animate-gradient{
-  background: linear-gradient(90deg, #FF4500, #D946EF, #F472B6);
-  background-size:200%, 200%;
+  background: linear-gradient(90deg, #FF4500, #D946EF, #F472B6, #FF4500);
+  background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: gradient 4s ease infinite;
+  animation: gradient 3s ease infinite;
+  text-shadow: 0 0 20px #D946EF, 0 0 40px #F472B6, 0 0 60px #FF4500;
+  filter: drop-shadow(0 0 10px #D946EF) drop-shadow(0 0 20px #F472B6);
 }
 
 @keyframes gradient {
-  0%,
-  100% {
-    background-position: 0% 0%;
+  0% {
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
