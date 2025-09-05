@@ -1,12 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import HeroSection from "@/components/HeroSection";
+import MissionSection from "@/components/MissionSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import WaitlistSection from "@/components/WaitlistSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [showWaitlist, setShowWaitlist] = useState(false);
+
+  const scrollToWaitlist = () => {
+    const waitlistElement = document.getElementById('waitlist');
+    if (waitlistElement) {
+      waitlistElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Set dark theme by default
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-black text-white">
+      <HeroSection onJoinWaitlist={scrollToWaitlist} />
+      <MissionSection />
+      <FeaturesSection />
+      <WaitlistSection />
+      <Footer />
     </div>
   );
 };
