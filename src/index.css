@@ -100,15 +100,41 @@
   text-shadow: 0 0 6px currentColor;
 }
 
-.animate-gradient{
-  background: linear-gradient(90deg, #FF4500, #D946EF, #F472B6, #00FF9F);
-  background-size: 400% 400%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: gradient 3s ease infinite;
-  text-shadow: 0 0 30px #D946EF, 0 0 60px #F472B6, 0 0 90px #FF4500;
-  filter: drop-shadow(0 0 15px #D946EF) drop-shadow(0 0 30px #F472B6);
+.animate-glow {
+  font-size: 6rem; /* adjust to your header size */
+  font-weight: bold;
+  color: white; /* keeps the text readable */
+  position: relative;
+  text-align: center;
+  letter-spacing: 2px;
+  
+  /* Glow animation */
+  text-shadow: 0 0 10px #ff4500,
+               0 0 20px #d946ef,
+               0 0 40px #f472b6,
+               0 0 80px #00ff9f;
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ff4500,
+                 0 0 20px #d946ef,
+                 0 0 40px #f472b6,
+                 0 0 80px #00ff9f;
+  }
+  50% {
+    text-shadow: 0 0 20px #d946ef,
+                 0 0 40px #f472b6,
+                 0 0 80px #00ff9f,
+                 0 0 120px #ff4500;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff4500,
+                 0 0 20px #d946ef,
+                 0 0 40px #f472b6,
+                 0 0 80px #00ff9f;
+  }
 }
 
 @keyframes gradient {
