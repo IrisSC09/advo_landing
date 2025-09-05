@@ -13,22 +13,22 @@ const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${protestHero})`
       }}
     >
-      {/* Floating background elements */}
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full floating opacity-60"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full floating-delayed opacity-40"></div>
-        <div className="absolute bottom-32 left-1/4 w-1 h-1 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full floating opacity-80"></div>
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-400 rounded-full floating-delayed opacity-50"></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full"></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+        <div className="absolute bottom-32 left-1/4 w-1 h-1 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-400 rounded-full"></div>
       </div>
 
       <div className="container mx-auto px-6 text-center text-white z-10">
         <div className="fade-in-up animate">
-          <h1 className="text-7xl md:text-9xl font-black mb-8 animate-gradient leading-tight floating">
+          <h1 className="text-7xl md:text-9xl font-black mb-8 animate-gradient leading-tight">
             ADVOLINE
           </h1>
         </div>
         <div className="fade-in-up animate stagger-1">
-          <h2 className="text-2xl md:text-3xl font-light mb-8 neon-glow floating-delayed">
+          <h2 className="text-2xl md:text-3xl font-light mb-8 neon-glow">
             YOUR PIPELINE TO ADVOCACY
           </h2>
         </div>
