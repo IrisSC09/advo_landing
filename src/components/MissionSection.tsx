@@ -22,7 +22,7 @@ const MissionSection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="glass-card p-8 text-center hover-lift fade-in-up animate stagger-1">
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center floating">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center">
                 <Users className="w-8 h-8 text-white" />
               </div>
             </div>
@@ -36,7 +36,7 @@ const MissionSection = () => {
           
           <div className="glass-card p-8 text-center hover-lift fade-in-up animate stagger-2">
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center floating-delayed">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                 <Target className="w-8 h-8 text-white" />
               </div>
             </div>
@@ -50,7 +50,7 @@ const MissionSection = () => {
           
           <div className="glass-card p-8 text-center hover-lift fade-in-up animate stagger-3">
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center floating">
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center">
                 <Megaphone className="w-8 h-8 text-white" />
               </div>
             </div>
