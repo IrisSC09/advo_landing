@@ -15,31 +15,13 @@ const Index = () => {
     }
   };
 
-  // Set dark theme by default and initialize scroll animations
+  // Set dark theme by default
   useEffect(() => {
     document.documentElement.classList.add('dark');
-    
-    // Initialize scroll-triggered animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    // Observe all fade-in-up elements
-    const animatedElements = document.querySelectorAll('.fade-in-up');
-    animatedElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white">
       <HeroSection onJoinWaitlist={scrollToWaitlist} />
       <MissionSection />
       <FeaturesSection />
