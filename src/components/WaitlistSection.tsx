@@ -14,13 +14,75 @@ const WaitlistSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Input sanitization function
+  const sanitizeInput = (input: string): string => {
+    return input.trim().replace(/[<>\"'&]/g, (match) => {
+      const entities: { [key: string]: string } = {
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        '&': '&amp;'
+      };
+      return entities[match];
+    });
+  };
+
+  // Email validation function
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email) {
+    // Sanitize inputs
+    const sanitizedName = sanitizeInput(formData.name);
+    const sanitizedEmail = sanitizeInput(formData.email);
+    const sanitizedCauses = sanitizeInput(formData.causes);
+
+    // Validation
+    if (!sanitizedName || sanitizedName.length < 2) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in your name and email.",
+        title: "Invalid Name",
+        description: "Please enter a valid name (at least 2 characters).",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!sanitizedEmail || !isValidEmail(sanitizedEmail)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (sanitizedName.length > 100) {
+      toast({
+        title: "Name Too Long",
+        description: "Name must be less than 100 characters.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (sanitizedEmail.length > 255) {
+      toast({
+        title: "Email Too Long",
+        description: "Email must be less than 255 characters.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (sanitizedCauses.length > 500) {
+      toast({
+        title: "Causes Too Long",
+        description: "Causes must be less than 500 characters.",
         variant: "destructive"
       });
       return;
@@ -32,12 +94,24 @@ const WaitlistSection = () => {
       const { error } = await supabase
         .from('waitlist')
         .insert({
-          name: formData.name,
-          email: formData.email,
-          causes: formData.causes
+          name: sanitizedName,
+          email: sanitizedEmail,
+          causes: sanitizedCauses
         });
 
-      if (error) throw error;
+      if (error) {
+        // Handle specific database constraint errors
+        if (error.message.includes('valid_email_format')) {
+          throw new Error('Please enter a valid email address.');
+        }
+        if (error.message.includes('valid_name_format')) {
+          throw new Error('Please enter a valid name (at least 2 characters).');
+        }
+        if (error.message.includes('reasonable_field_lengths')) {
+          throw new Error('One or more fields exceed maximum length.');
+        }
+        throw error;
+      }
 
       toast({
         title: "Welcome to the movement! 🚀",
@@ -45,11 +119,11 @@ const WaitlistSection = () => {
       });
       
       setFormData({ name: "", email: "", causes: "" });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting to waitlist:', error);
       toast({
         title: "Submission Failed",
-        description: "There was an error joining the waitlist. Please try again.",
+        description: error.message || "There was an error joining the waitlist. Please try again.",
         variant: "destructive"
       });
     } finally {
