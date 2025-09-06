@@ -15,7 +15,7 @@ const MissionSection = () => {
             OUR MISSION
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-            Bridging the gap between complex policy and actionable change through innovative technology and youth empowerment.
+            Guarding freedom of political knowledge and expression through youth voices. No more misinformation, echo chambers, and bias.
           </p>
         </div>
         
@@ -30,7 +30,7 @@ const MissionSection = () => {
               Democratizing Information
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Making complex legislation accessible to everyone, breaking down barriers to civic engagement and political understanding.
+              Making complex political information accessible to everyone, regardless of background or education level
             </p>
           </div>
           
@@ -44,7 +44,7 @@ const MissionSection = () => {
               Combating Polarization
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Creating bridges across divides through factual, unbiased information that promotes understanding and constructive dialogue.
+              Fostering understanding through creative expression and fact-based discussions that bridge divides.
             </p>
           </div>
           
