@@ -78,12 +78,14 @@ const WaitlistSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12 fade-in-up animate">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 neon-glow floating">
-              JOIN THE REVOLUTION
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Ready to turn passion into{" "}
+                <span className="text-neon-purple neon-glow font-extralight">
+                  power?
+                </span>
+              </h2>
             <p className="text-xl text-gray-300 font-light">
-              Be part of the generation that transforms how we engage with politics. 
-              Early access coming soon. ✊
+              Join a movement of young activists who are done with performative politics and ready for real change.
             </p>
           </div>
           
@@ -127,7 +129,7 @@ const WaitlistSection = () => {
                   disabled={isSubmitting}
                   className="modern-button w-full h-14 text-lg font-semibold hover-lift"
                 >
-                  {isSubmitting ? "Joining the Movement..." : "Join the Waitlist"}
+                  {isSubmitting ? "Joining the Movement..." : "Thank you for joining!"}
                 </Button>
               </div>
             </div>
