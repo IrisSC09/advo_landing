@@ -32,10 +32,10 @@ const FeaturesSection = () => {
       }}
     >
       <div className="container mx-auto px-6 text-center text-white">
-        <h2 className={`text-5xl md:text-6xl font-bold mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <h2 className={`text-5xl md:text-6xl font-bold mb-4 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           POWERFUL <span className="text-orange-500">FEATURES</span>
         </h2>
-        <p className={`text-xl max-w-5xl mx-auto mb-16 font-light leading-relaxed transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <p className={`text-xl max-w-5xl mx-auto mb-16 font-light leading-relaxed transition-all duration-800 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           Everything you need to understand, engage with, and influence the political
           process.
         </p>

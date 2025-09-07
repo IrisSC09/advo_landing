@@ -164,15 +164,15 @@ const WaitlistSection = () => {
       }}
     >
       <div className="container mx-auto px-6 text-center text-white">
-        <h2 className={`text-4xl md:text-5xl font-bold mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <h2 className={`text-4xl md:text-5xl font-bold mb-8 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           Ready to turn passion into <span className="neon-glow">power?</span>
         </h2>
-        <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light transition-all duration-800 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           Join a movement of young activists who are done with performative politics
           and ready for real change.
         </p>
         
-        <div className={`max-w-md mx-auto transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`max-w-md mx-auto transition-all duration-800 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="bg-black/60 p-8 rounded-2xl neon-border card-hover group">
             <h3 className="text-2xl font-bold mb-2 neon-glow">Join the Waitlist</h3>
             <p className="text-orange-500 mb-6 group-hover:text-pink-400 transition-colors duration-300">Be the first to turn your passion into powerful action</p>
