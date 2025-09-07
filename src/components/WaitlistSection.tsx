@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -12,26 +12,7 @@ const WaitlistSection = () => {
     causes: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const { toast } = useToast();
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   // Input sanitization function
   const sanitizeInput = (input: string): string => {
@@ -156,7 +137,6 @@ const WaitlistSection = () => {
 
   return (
     <section 
-      ref={sectionRef}
       id="waitlist"
       className="py-20 relative bg-cover bg-center"
       style={{
@@ -164,18 +144,18 @@ const WaitlistSection = () => {
       }}
     >
       <div className="container mx-auto px-6 text-center text-white">
-        <h2 className={`text-4xl md:text-5xl font-bold mb-8 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <h2 className="text-4xl md:text-5xl font-bold mb-8">
           Ready to turn passion into <span className="neon-glow">power?</span>
         </h2>
-        <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light transition-all duration-800 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light">
           Join a movement of young activists who are done with performative politics
           and ready for real change.
         </p>
         
-        <div className={`max-w-md mx-auto transition-all duration-800 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="bg-black/60 p-8 rounded-2xl neon-border card-hover group">
+        <div className="max-w-md mx-auto">
+          <div className="bg-black/60 p-8 rounded-2xl neon-border">
             <h3 className="text-2xl font-bold mb-2 neon-glow">Join the Waitlist</h3>
-            <p className="text-orange-500 mb-6 group-hover:text-pink-400 transition-colors duration-300">Be the first to turn your passion into powerful action</p>
+            <p className="text-orange-500 mb-6">Be the first to turn your passion into powerful action</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
@@ -183,7 +163,7 @@ const WaitlistSection = () => {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-purple-500 transition-colors duration-300"
+                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                 disabled={isSubmitting}
               />
               <Input
@@ -191,7 +171,7 @@ const WaitlistSection = () => {
                 placeholder="your.email@example.com"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-purple-500 transition-colors duration-300"
+                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                 disabled={isSubmitting}
               />
               <Input
@@ -199,19 +179,19 @@ const WaitlistSection = () => {
                 placeholder="Causes you care about (optional)"
                 value={formData.causes}
                 onChange={(e) => handleInputChange("causes", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-purple-500 transition-colors duration-300"
+                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                 disabled={isSubmitting}
               />
               <Button 
                 type="submit"
-                className="w-full neon-button btn-professional text-white font-semibold py-4 text-lg"
+                className="w-full neon-button text-white font-semibold py-4 text-lg"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Joining..." : "Start now!"}
               </Button>
             </form>
             
-            <p className="text-orange-500 mt-4 text-sm group-hover:text-pink-400 transition-colors duration-300">
+            <p className="text-orange-500 mt-4 text-sm">
               For future changemakers. Launching Soon
             </p>
           </div>
