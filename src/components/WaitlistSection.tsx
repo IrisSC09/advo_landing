@@ -153,45 +153,75 @@ const WaitlistSection = () => {
         </p>
         
         <div className="max-w-md mx-auto">
-          <div className="bg-black/60 p-8 rounded-2xl neon-border">
+          <div className="glass-panel p-8 rounded-2xl neon-border">
             <h3 className="text-2xl font-bold mb-2 neon-glow">Join the Waitlist</h3>
             <p className="text-orange-500 mb-6">Be the first to turn your passion into powerful action</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                type="text"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
-                disabled={isSubmitting}
-              />
-              <Input
-                type="email"
-                placeholder="your.email@example.com"
-                value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
-                disabled={isSubmitting}
-              />
-              <Input
-                type="text"
-                placeholder="Causes you care about (optional)"
-                value={formData.causes}
-                onChange={(e) => handleInputChange("causes", e.target.value)}
-                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
-                disabled={isSubmitting}
-              />
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange("name", e.target.value)}
+                  className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-pink-500 focus:ring-pink-500/20 transition-all duration-300"
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div className="relative">
+                <Input
+                  type="email"
+                  placeholder="your.email@example.com"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
+                  className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-pink-500 focus:ring-pink-500/20 transition-all duration-300"
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Causes you care about (optional)"
+                  value={formData.causes}
+                  onChange={(e) => handleInputChange("causes", e.target.value)}
+                  className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-pink-500 focus:ring-pink-500/20 transition-all duration-300"
+                  disabled={isSubmitting}
+                />
+              </div>
               <Button 
                 type="submit"
-                className="w-full neon-button text-white font-semibold py-4 text-lg"
+                className="w-full neon-button shimmer text-white font-semibold py-4 text-lg relative overflow-hidden"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Joining..." : "Start now!"}
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Joining...
+                  </div>
+                ) : (
+                  "Start now!"
+                )}
               </Button>
             </form>
             
-            <p className="text-orange-500 mt-4 text-sm">
+            <div className="mt-6 pt-6 border-t border-gray-700/50">
+              <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                  <span>No spam</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-pink-500 rounded-full mr-2"></div>
+                  <span>Early access</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                  <span>Free forever</span>
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-orange-500 mt-4 text-sm text-center">
               For future changemakers. Launching Soon
             </p>
           </div>
