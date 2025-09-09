@@ -61,29 +61,6 @@ const MissionSection = () => {
             </p>
           </div>
         </div>
-
-        {/* Impact metrics */}
-        <div className="mt-20 glass-panel rounded-2xl p-8">
-          <h3 className="text-3xl font-bold mb-8 neon-glow">Our Impact</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">2M+</div>
-              <div className="text-gray-300">Bills Simplified</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold neon-glow mb-2">150K</div>
-              <div className="text-gray-300">Active Users</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">85%</div>
-              <div className="text-gray-300">Engagement Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold neon-glow mb-2">200+</div>
-              <div className="text-gray-300">Policy Wins</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
