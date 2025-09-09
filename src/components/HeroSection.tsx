@@ -49,11 +49,17 @@ const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="scroll-indicator" onClick={scrollToMission}>
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer transition-all duration-300 hover:scale-110" onClick={scrollToMission}>
+        <div className="flex flex-col items-center space-y-2">
+          <svg 
+            className="w-8 h-8 text-white animate-bounce" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
-        <div className="text-white text-sm mt-2 font-light">Discover Our Mission</div>
       </div>
     </section>
   );

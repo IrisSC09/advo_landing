@@ -153,7 +153,7 @@ const WaitlistSection = () => {
         </p>
         
         <div className="max-w-md mx-auto">
-          <div className="glass-panel p-8 rounded-2xl neon-border">
+          <div className="glass-panel p-8 rounded-2xl neon-border hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-300">
             <h3 className="text-2xl font-bold mb-2 neon-glow">Join the Waitlist</h3>
             <p className="text-orange-500 mb-6">Be the first to turn your passion into powerful action</p>
             
@@ -204,22 +204,6 @@ const WaitlistSection = () => {
               </Button>
             </form>
             
-            <div className="mt-6 pt-6 border-t border-gray-700/50">
-              <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  <span>No spam</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-pink-500 rounded-full mr-2"></div>
-                  <span>Early access</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
-                  <span>Free forever</span>
-                </div>
-              </div>
-            </div>
             
             <p className="text-orange-500 mt-4 text-sm text-center">
               For future changemakers. Launching Soon
