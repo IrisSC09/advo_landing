@@ -23,10 +23,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <HeroSection onJoinWaitlist={scrollToWaitlist} />
-      <div className="bg-gradient-to-r from-purple-900/60 via-pink-900/40 to-orange-900/60 py-3 md:py-4 text-center border-y border-gray-700">
-        <p className="text-white text-sm md:text-base font-medium tracking-wide px-4">
-          🏆 <span className="font-semibold">Diamond Challenge Semifinalist</span>
-        </p>
+      <div className="bg-gradient-to-r from-purple-900/60 via-pink-900/40 to-orange-900/60 py-2 md:py-3 border-y border-gray-700 overflow-hidden">
+        <div className="animate-marquee whitespace-nowrap flex gap-12">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className="text-white text-xs md:text-sm font-semibold tracking-[0.25em] uppercase inline-block">
+              🏆 DIAMOND CHALLENGE SEMIFINALIST
+            </span>
+          ))}
+        </div>
       </div>
       <MissionSection />
       <FeaturesSection />
