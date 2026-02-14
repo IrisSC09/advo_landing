@@ -25,15 +25,15 @@ const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => {
         <div className="floating-element absolute bottom-40 left-1/4 w-24 h-24 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 text-center text-white z-10 relative">
-        <div className="rounded-3xl p-12 max-w-5xl mx-auto">
-          <h1 className="text-7xl md:text-9xl font-black mb-8 animate-gradient leading-tight fade-in">
+      <div className="container mx-auto px-4 md:px-6 text-center text-white z-10 relative">
+        <div className="rounded-3xl p-6 md:p-12 max-w-5xl mx-auto">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black mb-6 md:mb-8 animate-gradient leading-tight fade-in">
             ADVOLINE
           </h1>
-          <h2 className="text-2xl md:text-3xl font-light mb-8 neon-glow fade-in fade-in-delay-1">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-light mb-6 md:mb-8 neon-glow fade-in fade-in-delay-1">
             YOUR PIPELINE TO ADVOCACY
           </h2>
-          <p className="text-lg md:text-xl max-w-4xl mx-auto mb-12 font-light leading-relaxed fade-in fade-in-delay-2">
+          <p className="text-base md:text-xl max-w-4xl mx-auto mb-8 md:mb-12 font-light leading-relaxed fade-in fade-in-delay-2">
             Combat polarization. Amplify youth voices. Transform complex legislation into
             accessible, actionable content that drives real change.
           </p>
@@ -41,7 +41,7 @@ const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => {
           
           <Button 
             onClick={onJoinWaitlist}
-            className="neon-button shimmer text-white font-semibold py-4 px-12 text-lg rounded-full fade-in fade-in-delay-3"
+            className="neon-button shimmer text-white font-semibold py-3 md:py-4 px-8 md:px-12 text-base md:text-lg rounded-full fade-in fade-in-delay-3"
           >
             Join the waitlist
           </Button>

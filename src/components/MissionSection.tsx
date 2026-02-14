@@ -4,21 +4,21 @@ const MissionSection = () => {
   return (
     <section 
       id="mission"
-      className="py-20 relative bg-cover bg-center"
+      className="py-12 md:py-20 relative bg-cover bg-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${missionBackground})`
       }}
     >
-      <div className="container mx-auto px-6 text-center text-white">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4">
+      <div className="container mx-auto px-4 md:px-6 text-center text-white">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           OUR <span className="neon-glow">MISSION</span>
         </h2>
-        <p className="text-xl max-w-5xl mx-auto mb-16 font-light leading-relaxed">
+        <p className="text-base md:text-xl max-w-5xl mx-auto mb-10 md:mb-16 font-light leading-relaxed">
           Guarding freedom of political knowledge and expression through youth voices. No
           more misinformation, echo chambers, and bias.
         </p>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           <div className="bg-black/80 p-8 rounded-2xl border border-gray-700 hover-lift">
             <div className="relative w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <div className="pulse-ring"></div>
