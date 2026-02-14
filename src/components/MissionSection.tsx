@@ -13,9 +13,14 @@ const MissionSection = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           OUR <span className="neon-glow">MISSION</span>
         </h2>
+        <p className="text-base md:text-xl max-w-5xl mx-auto mb-6 font-light leading-relaxed">
+          Advoline's mission is to democratize civic education and advocacy for youth activists.
+        </p>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          OUR <span className="text-orange-500">VISION</span>
+        </h2>
         <p className="text-base md:text-xl max-w-5xl mx-auto mb-10 md:mb-16 font-light leading-relaxed">
-          Guarding freedom of political knowledge and expression through youth voices. No
-          more misinformation, echo chambers, and bias.
+          Advoline's vision is to create tangible political change through education and community.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
