@@ -14,8 +14,8 @@ const Footer = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-black to-orange-900/20"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <span className="text-orange-500 font-bold text-2xl animate-gradient">ADVOLINE</span>

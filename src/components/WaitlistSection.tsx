@@ -138,22 +138,22 @@ const WaitlistSection = () => {
   return (
     <section 
       id="waitlist"
-      className="py-20 relative bg-cover bg-center"
+      className="py-12 md:py-20 relative bg-cover bg-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${waitlistBackground})`
       }}
     >
-      <div className="container mx-auto px-6 text-center text-white">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">
+      <div className="container mx-auto px-4 md:px-6 text-center text-white">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8">
           Ready to turn passion into <span className="neon-glow">power?</span>
         </h2>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light">
+        <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 font-light">
           Join a movement of young activists who are done with performative politics
           and ready for real change.
         </p>
         
-        <div className="max-w-md mx-auto">
-          <div className="glass-panel p-8 rounded-2xl neon-border hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-300">
+        <div className="max-w-sm sm:max-w-md mx-auto">
+          <div className="glass-panel p-6 md:p-8 rounded-2xl neon-border hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all duration-300">
             <h3 className="text-2xl font-bold mb-2 neon-glow">Join the Waitlist</h3>
             <p className="text-orange-500 mb-6">Be the first to turn your passion into powerful action</p>
             
