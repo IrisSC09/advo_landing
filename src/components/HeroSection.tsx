@@ -13,11 +13,16 @@ const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => {
 
   return (
     <section 
-      className="min-h-screen flex items-center justify-center relative bg-cover bg-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${protestHero})`
-      }}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
+      {/* Grayscale background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center grayscale"
+        style={{
+          backgroundImage: `url(${protestHero})`,
+        }}
+      />
+      <div className="absolute inset-0 bg-black/65" />
       {/* Floating background elements */}
       <div className="absolute inset-0 z-0">
         <div className="floating-element absolute top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl"></div>
