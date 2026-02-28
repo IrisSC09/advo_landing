@@ -148,8 +148,7 @@ const WaitlistSection = () => {
           Ready to turn passion into <span className="neon-glow">power?</span>
         </h2>
         <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 font-light">
-          Join a movement of young activists who are done with performative politics
-          and ready for real change.
+          Join a movement of young activists who are ready for real change.
         </p>
         
         <div className="max-w-sm sm:max-w-md mx-auto">
